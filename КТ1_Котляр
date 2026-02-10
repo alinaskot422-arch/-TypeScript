@@ -1,0 +1,25 @@
+// Номер 2
+type Hobby = 'рисование' | 'тир' | 'вязание' | 'кулинария';
+type Extra = 'алгебра' | 'география' | 'информатика' | 'музыка';
+type Facultative = Hobby | Extra;
+
+const num1: Facultative = 'рисование';
+const num2: Facultative = 'тир';
+const num3: Facultative = 'вязание';
+const num4: Facultative = 'кулинария';
+const num5: Facultative = 'алгебра';
+const num6: Facultative = 'география';
+const num7: Facultative = 'информатика';
+const num8: Facultative = 'музыка';
+
+console.log('Содержание из Hobby:');
+console.log(num1);
+console.log(num2);
+console.log(num3);
+console.log(num4);
+
+console.log('Содержание из Extra:');
+console.log(num5);
+console.log(num6);
+console.log(num7);
+console.log(num8);
