@@ -104,10 +104,10 @@ function demo(): Invoice {
         new LaborLine("диагностика", 2, 1500),
         new LaborLine("диагностика", 2, 1500),
 
-        new PartLine("мотор", 1, 50000),
-        new PartLine("мотор", 1, 50000),
-        new PartLine("мотор", 1, 50000),
-        new PartLine("мотор", 1, 50000),
+        new PartLine("движок", 1, 64890),
+        new PartLine("мотор", 2, 80370),
+        new PartLine("выхлоп", 1, 56540),
+        new PartLine("поршень", 5, 94430),
     ]
 
     const invoice = new Invoice("INV-2026-0001", lines)
