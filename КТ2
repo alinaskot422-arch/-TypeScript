@@ -83,12 +83,31 @@ class CashPayment implements PaymentMethod {
     }
 }
 
+// вариант 2
+class PartLine extends InvoiceLine {
+    constructor(title: string, qty: number, private readonly rubPerHour: number, private readonly mark: number = 0.1) {
+        super(title, qty)
+    }
+    protected unitPrice(): Money {
+        return { amount: this.rubPerHour, currency: "rub" }
+    }
+    public total(): Money {
+        const base = super.total()
+        return { amount: base.amount * (1 + this.mark), currency: base.currency }
+    }
+}
+
 function demo(): Invoice {
     const lines = [
         new LaborLine("диагностика", 2, 1500),
         new LaborLine("диагностика", 2, 1500),
         new LaborLine("диагностика", 2, 1500),
         new LaborLine("диагностика", 2, 1500),
+
+        new PartLine("мотор", 1, 50000),
+        new PartLine("мотор", 1, 50000),
+        new PartLine("мотор", 1, 50000),
+        new PartLine("мотор", 1, 50000),
     ]
 
     const invoice = new Invoice("INV-2026-0001", lines)
@@ -109,6 +128,8 @@ async function demoSign(invoice: Invoice) {
     console.log(invoice)
     console.log(result)
 }
-
+const invoice = demo()
+demoSign(invoice)
+}
 const invoice = demo()
 demoSign(invoice)
